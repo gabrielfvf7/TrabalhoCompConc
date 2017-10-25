@@ -11,7 +11,7 @@ public class Main {
 
     public static void main(String args[]){
 
-        nome_arquivo = "F:\\teste.txt";
+        nome_arquivo = "teste.txt";
         int qtd = Integer.parseInt(args[1]);
 
         x = new estrutura(qtd);
