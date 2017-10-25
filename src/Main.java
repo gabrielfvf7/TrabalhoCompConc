@@ -65,9 +65,36 @@ public class Main {
             System.out.println("Assento "+i+" com valor: "+t_Assentos[i]);
         }
 
-        String id_thread = Thread.currentThread().getName();
-        System.out.println("id da thread é: "+id_thread);
+        int id_thread = Integer.parseInt(Thread.currentThread().getName());
+        String teste = fazString();
+        buffer(1,id_thread, 0, teste);
+    }
 
+    public static int alocaAssentoDado(int assento, int id){
+        if(id == Integer.parseInt(Thread.currentThread().getName())) {
+            if (t_Assentos[assento] == 0) {
+                t_Assentos[assento] = 1;
+                System.out.println("Assento reservado!");
+                int id_thread = Integer.parseInt(Thread.currentThread().getName());
+                String teste = fazString();
+                buffer(3,id_thread, assento, teste);
+                return 1;
+            } else System.out.println("Assento não reservado!"); return 0;
+        } else{
+            System.out.println("Thread com id diferente do usuário");
+            return 0;
+        }
+    }
+
+    public static int alocaAssentoLivre(int assento, int id){
+        return 0;
+    }
+
+    public static int liberaAssento(int assento, int id){
+        return 0;
+    }
+
+    public static String fazString(){
         StringBuilder sb = new StringBuilder();
         sb.append("[");
         for(int i = 0; i<estrutura.qtd; i++){
@@ -79,25 +106,26 @@ public class Main {
             }
         }
         sb.append("]");
-
-        String teste = sb.toString();
-
-
-
-        //Escreve no buffer (1, id_thread, t_Assentos)
-        try(BufferedWriter bw = new BufferedWriter((new FileWriter(nome_arquivo, true)))){
-            String content = "1, "+id_thread+", "+teste;
-            bw.newLine();
-            bw.write(content);
-        } catch (IOException e){e.printStackTrace();}
+        return sb.toString();
     }
 
-    public static int alocaAssentoDado(int assento, int id){
+    public static void buffer(int codigo, int id_thread, int assento, String assentos){
+        //Escreve no buffer (1, id_thread, t_Assentos)
 
-        if(t_Assentos[assento] == 0){
-            t_Assentos[assento] = 1;
-            return 1;
+        if(assento == 0){
+            try(BufferedWriter bw = new BufferedWriter((new FileWriter(nome_arquivo, true)))){
+                String content = codigo+", "+id_thread+", "+assentos;
+                bw.newLine();
+                bw.write(content);
+            } catch (IOException e){e.printStackTrace();}
+        } else {
+            try (BufferedWriter bw = new BufferedWriter((new FileWriter(nome_arquivo, true)))) {
+                String content = codigo + ", " + id_thread + ", " + assento + ", " + assentos;
+                bw.newLine();
+                bw.write(content);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        else return 0;
     }
 }
