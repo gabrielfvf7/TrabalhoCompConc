@@ -6,12 +6,11 @@ public class Main {
 
     public static int t_Assentos[];
     public static int t_Assento;
-    public static String nome_arquivo;
+    public static String nome_arquivo = "teste.txt";
     public static estrutura x;
 
     public static void main(String args[]){
 
-        nome_arquivo = "teste.txt";
         int qtd = Integer.parseInt(args[1]);
 
         x = new estrutura(qtd);
@@ -22,11 +21,11 @@ public class Main {
         td1.start();
     }
 
-    public static class estrutura{
+    public static class Estrutura{
         static int qtd;
         int i = 0;
 
-        estrutura(int qtd){
+        Estrutura(int qtd){
             this.qtd = qtd;
             t_Assentos = new int[qtd];
             for (int i = 0; i < qtd; i++ ){
@@ -36,9 +35,9 @@ public class Main {
     }
 
     public static class thread1 extends Thread{
-        private estrutura x;
+        private Estrutura x;
 
-        thread1(estrutura x){
+        thread1(Estrutura x){
             this.x = x;
         }
 
@@ -51,9 +50,9 @@ public class Main {
     }
 
     public static class thread2 extends Thread{
-        private estrutura x;
+        private Estrutura x;
 
-        thread2(estrutura x) { this.x = x;}
+        thread2(Estrutura x) { this.x = x;}
 
         public void run(){
             visualizaAssentos();
@@ -61,7 +60,7 @@ public class Main {
     }
 
     public static void visualizaAssentos() {
-        for(int i = 0; i < estrutura.qtd; i++){
+        for(int i = 0; i < Estrutura.qtd; i++){
             System.out.println("Assento "+i+" com valor: "+t_Assentos[i]);
         }
 
@@ -97,8 +96,8 @@ public class Main {
     public static String fazString(){
         StringBuilder sb = new StringBuilder();
         sb.append("[");
-        for(int i = 0; i<estrutura.qtd; i++){
-            if(i == estrutura.qtd - 1){
+        for(int i = 0; i < Estrutura.qtd; i++){
+            if(i == Estrutura.qtd - 1){
                 sb.append(t_Assentos[i]);
             }else {
                 sb.append(t_Assentos[i]);
