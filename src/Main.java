@@ -7,15 +7,15 @@ public class Main {
     public static int t_Assentos[];
     public static int t_Assento;
     public static String nome_arquivo = "teste.txt";
-    public static estrutura x;
+    public static Estrutura x;
 
     public static void main(String args[]){
 
         int qtd = Integer.parseInt(args[1]);
 
-        x = new estrutura(qtd);
+        x = new Estrutura(qtd);
 
-        thread1 td1 = new thread1(x);
+        Thread1 td1 = new Thread1(x);
 
         td1.setName("1");
         td1.start();
@@ -34,10 +34,10 @@ public class Main {
         }
     }
 
-    public static class thread1 extends Thread{
+    public static class Thread1 extends Thread{
         private Estrutura x;
 
-        thread1(Estrutura x){
+        Thread1(Estrutura x){
             this.x = x;
         }
 
@@ -49,10 +49,10 @@ public class Main {
         }
     }
 
-    public static class thread2 extends Thread{
+    public static class Thread2 extends Thread{
         private Estrutura x;
 
-        thread2(Estrutura x) { this.x = x;}
+        Thread2(Estrutura x) { this.x = x;}
 
         public void run(){
             visualizaAssentos();
@@ -78,7 +78,10 @@ public class Main {
                 String teste = fazString();
                 buffer(3,id_thread, assento, teste);
                 return 1;
-            } else System.out.println("Assento não reservado!"); return 0;
+            } else {
+                System.out.println("Assento não reservado!");
+                return 0;
+            }
         } else{
             System.out.println("Thread com id diferente do usuário");
             return 0;
