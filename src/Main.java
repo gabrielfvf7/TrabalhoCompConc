@@ -1,8 +1,13 @@
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Random;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 
 public class Main {
+
+//    private static ConcurrentMap<Integer, Integer> mapaAssentos = new ConcurrentHashMap<>();
 
     public static int t_Assentos[];
     public static int t_Assento;
@@ -10,6 +15,9 @@ public class Main {
     public static Estrutura x;
 
     public static void main(String args[]){
+
+//        mapaAssentos.put(1, 0);
+//        mapaAssentos.replace()
 
         int qtd = Integer.parseInt(args[1]);
 
@@ -88,7 +96,7 @@ public class Main {
         }
     }
 
-    public static int alocaAssentoLivre(int assento, int id){
+    public static int alocaAssentoLivre(int id){
         return 0;
     }
 
