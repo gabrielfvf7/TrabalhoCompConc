@@ -42,37 +42,46 @@ public class Main {
         finalizaBuffer();
     }
 
+    /**
+     * Thread que gerencia 3 assentos. Repete 5 vezes os passos:
+     * 1 - Gera um primeiro assento aleatório.
+     * 2 - Aloca três assentos consecutivos a partir do primeiro gerado a partir de um primeiro assento aleatório.
+     * 3 - Desaloca os três assentos alocados no passo anterior.
+     * 4 - Pausa por 1 segundo.
+     * e em seguida desaloca os 3 assentos.
+     */
     public static class Thread1 extends Thread{
-
         int[] assentos = {0, 0, 0};
+        int[] alocado = {0, 0, 0};
+        int n_execucoes = 5;
 
         public void run(){
-
             int id = Integer.parseInt(getName());
 
-            assentos[0] = random.nextInt(t_Assentos.size() - 3) + 1;
-            assentos[1] = assentos[0] + 1;
-            assentos[2] = assentos[1] + 1;
+            while(n_execucoes-- > 0) {
+                assentos[0] = random.nextInt(t_Assentos.size() - 2) + 1;
+                assentos[1] = assentos[0] + 1;
+                assentos[2] = assentos[1] + 1;
 
-            visualizaAssentos();
+                visualizaAssentos();
 
-            int alocado = alocaAssentoDado(assentos[0], id);
-            if(alocado == 1)
-                alocado = alocaAssentoDado(assentos[1], id);
-            if(alocado == 1)
-                alocado = alocaAssentoDado(assentos[2], id);
+                alocado[0] = alocaAssentoDado(assentos[0], id);
+                alocado[1] = alocaAssentoDado(assentos[1], id);
+                alocado[2] = alocaAssentoDado(assentos[2], id);
 
-            visualizaAssentos();
+                visualizaAssentos();
 
-            if(alocado == 1){
-                System.out.println("Tres assentos alocados com sucesso");
+                int liberados = liberaAssento(assentos[0], id);
+                liberados += liberaAssento(assentos[1], id);
+                liberados += liberaAssento(assentos[2], id);
+                visualizaAssentos();
+                System.out.println(liberados + " assentos desalocados com sucesso");
+                try {
+                    sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
-
-            liberaAssento(assentos[0], id);
-            visualizaAssentos();
-            liberaAssento(assentos[1]+2, id);
-            visualizaAssentos();
-
         }
     }
 
@@ -156,7 +165,7 @@ public class Main {
         return sb.toString();
     }
 
-    public static void inicializaBuffer(){
+    private static void inicializaBuffer(){
         try{
             bw = new BufferedWriter(new FileWriter(nome_arquivo, true));
         } catch (IOException e){
@@ -165,7 +174,7 @@ public class Main {
         }
     }
 
-    public static void buffer(int codigo, int id_thread, int assento){
+    private synchronized static void buffer(int codigo, int id_thread, int assento){
         //Escreve no buffer (1, id_thread, t_Assentos)
 
         String assentos = fazString();
@@ -192,6 +201,7 @@ public class Main {
     private static void finalizaBuffer(){
         try {
             bw.write("-------");
+            bw.newLine();
             bw.flush();
             bw.close();
         } catch (IOException e){
