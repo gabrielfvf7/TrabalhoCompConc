@@ -1,23 +1,24 @@
-import javafx.util.Pair;
-
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.security.Key;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
 public class Main {
 
-    public static ConcurrentMap<Integer, Integer> t_Assentos = new ConcurrentHashMap<>();
-    public static Pair<Integer, Integer> t_Assento;
+    private static ConcurrentMap<Integer, Integer> t_Assentos = new ConcurrentHashMap<>();
+    private static int t_Assento;
 
-    public static String nome_arquivo = "teste.txt";
+    private static String nome_arquivo = "teste.txt";
+
+    private static Random random = new Random();
+    private static BufferedWriter bw;
 
     public static void main(String args[]){
 
         nome_arquivo = args[0];
+        inicializaBuffer();
 
         int qtd = Integer.parseInt(args[1]);
 
@@ -31,14 +32,47 @@ public class Main {
 
         td1.setName("1");
         td1.start();
+
+        try {
+            td1.join();
+        } catch (InterruptedException e){
+            e.printStackTrace();
+        }
+
+        finalizaBuffer();
     }
 
     public static class Thread1 extends Thread{
+
+        int[] assentos = {0, 0, 0};
+
         public void run(){
+
+            int id = Integer.parseInt(getName());
+
+            assentos[0] = random.nextInt(t_Assentos.size() - 3) + 1;
+            assentos[1] = assentos[0] + 1;
+            assentos[2] = assentos[1] + 1;
+
             visualizaAssentos();
-            alocaAssentoDado(2, 1);
+
+            int alocado = alocaAssentoDado(assentos[0], id);
+            if(alocado == 1)
+                alocado = alocaAssentoDado(assentos[1], id);
+            if(alocado == 1)
+                alocado = alocaAssentoDado(assentos[2], id);
+
             visualizaAssentos();
-           // liberaAssento();
+
+            if(alocado == 1){
+                System.out.println("Tres assentos alocados com sucesso");
+            }
+
+            liberaAssento(assentos[0], id);
+            visualizaAssentos();
+            liberaAssento(assentos[1]+2, id);
+            visualizaAssentos();
+
         }
     }
 
@@ -54,35 +88,57 @@ public class Main {
         System.out.println(listaAssentos);
 
         int id_thread = Integer.parseInt(Thread.currentThread().getName());
-        String teste = fazString();
-        buffer(1,id_thread, 0, teste);
+        buffer(1,id_thread, 0);
     }
 
     public static int alocaAssentoDado(int assento, int id){
         if(id == Integer.parseInt(Thread.currentThread().getName())) {
             boolean reservado = t_Assentos.replace(assento, 0, id);
-            if ( reservado ) {
+            if (reservado) {
                 System.out.println("Assento reservado!");
                 int id_thread = Integer.parseInt(Thread.currentThread().getName());
-                String listaAssentos = fazString();
-                buffer(3, id_thread, assento, listaAssentos);
+                buffer(3, id_thread, assento);
                 return 1;
             } else {
                 System.out.println("Assento não reservado!");
                 return 0;
             }
-        } else{
-            System.out.println("Thread com id diferente do usuário");
+        } else {
+            System.out.println("Assento não reservado - ID não compatível com o nome da thread.");
             return 0;
         }
     }
 
     public static int alocaAssentoLivre(int id){
-        return 0;
-    }cd tr
+        if(id == Integer.parseInt(Thread.currentThread().getName())) {
+            // TODO Pegar numero aleatório.
+            return 0;
+        } else {
+            System.out.println("Assento não reservado - ID não compatível com o nome da thread.");
+            return 0;
+        }
+    }
 
+    /**
+     * Operação 4 - Libera um assento dado se o id for igual ao id da thread que o alocou.
+     * @param assento Número do assento a ser desalocado
+     * @param id ID da thread que alocou o assento
+     * @return 0 - se o assento não for desalocado. <br> 1 - se o assento for desalocado.
+     */
     public static int liberaAssento(int assento, int id){
-        return 0;
+        // Testa se o parâmetro id é mesmo da Thread que chamou a função
+        if(id == Integer.parseInt(Thread.currentThread().getName())) {
+            // Atualiza para 0 - Livre o estado do assento se o atual valor = id da thread.
+            boolean liberou = t_Assentos.replace(assento, id, 0);
+            if (liberou) {
+                buffer(4, id, assento);
+                return 1;
+            } else {
+                return 0;
+            }
+        } else {
+            return 0;
+        }
     }
 
     public static String fazString(){
@@ -100,23 +156,46 @@ public class Main {
         return sb.toString();
     }
 
-    public static void buffer(int codigo, int id_thread, int assento, String assentos){
+    public static void inicializaBuffer(){
+        try{
+            bw = new BufferedWriter(new FileWriter(nome_arquivo, true));
+        } catch (IOException e){
+            e.printStackTrace();
+            System.exit(-1);
+        }
+    }
+
+    public static void buffer(int codigo, int id_thread, int assento){
         //Escreve no buffer (1, id_thread, t_Assentos)
 
+        String assentos = fazString();
+
         if(assento == 0){
-            try(BufferedWriter bw = new BufferedWriter((new FileWriter(nome_arquivo, true)))){
-                String content = codigo+","+id_thread+","+assentos;
-                bw.newLine();
+            try {
+                String content = codigo + "," + id_thread + "," + assentos;
                 bw.write(content);
-            } catch (IOException e){e.printStackTrace();}
+                bw.newLine();
+            } catch (IOException e){
+                e.printStackTrace();
+            }
         } else {
-            try (BufferedWriter bw = new BufferedWriter((new FileWriter(nome_arquivo, true)))) {
+            try {
                 String content = codigo + "," + id_thread + "," + assento + "," + assentos;
-                bw.newLine();
                 bw.write(content);
+                bw.newLine();
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    private static void finalizaBuffer(){
+        try {
+            bw.write("-------");
+            bw.flush();
+            bw.close();
+        } catch (IOException e){
+            e.printStackTrace();
         }
     }
 }
