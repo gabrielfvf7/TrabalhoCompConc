@@ -1,3 +1,5 @@
+import javafx.util.Pair;
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -11,8 +13,6 @@ public class Main {
     private static int t_Assento;
 
     private static String nome_arquivo = "teste.txt";
-
-    private static int assento;
 
     private static Random random = new Random();
     private static BufferedWriter bw;
@@ -75,6 +75,8 @@ public class Main {
                 alocado[1] = alocaAssentoDado(assentos[1], id);
                 alocado[2] = alocaAssentoDado(assentos[2], id);
 
+                try { sleep(80); } catch (InterruptedException e){}
+
                 visualizaAssentos();
 
                 int liberados = liberaAssento(assentos[0], id);
@@ -82,7 +84,7 @@ public class Main {
                 liberados += liberaAssento(assentos[2], id);
                 //System.out.println(liberados + " assentos desalocados com sucesso");
                 try {
-                    sleep(1000);
+                    sleep(500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -90,15 +92,27 @@ public class Main {
         }
     }
 
+    /**
+     * Thread que aloca um assento aleatório livre, e em seguida desaloca o mesmo.
+     * Pausa uma vez após alocar o assento, e outra vez após desalocar o assento,
+     * apenas para evitar um código extremamente rápido e manter assentos alocados por mais tempo.
+     */
     public static class Thread2 extends Thread{
+        int assento = 0;
         int r = random.nextInt(t_Assentos.size()+1);
-        //int[] assentos = new int[r];
+
         public void run(){
             int id = Integer.parseInt(getName());
             while(r-- > 0){
-                alocaAssentoLivre(id);
+                assento = alocaAssentoLivre(id);
                 visualizaAssentos();
-                liberaAssento(assento, id);
+
+                try { sleep(100); } catch (InterruptedException e){}
+
+                if(assento != 0)
+                    liberaAssento(assento, id);
+
+                try { sleep(50); } catch (InterruptedException e){}
             }
         }
     }
@@ -112,7 +126,7 @@ public class Main {
         buffer(1,id_thread, 0);
     }
 
-    public static synchronized int alocaAssentoDado(int assento, int id){
+    public static int alocaAssentoDado(int assento, int id){
         if(id == Integer.parseInt(Thread.currentThread().getName())) {
             boolean reservado = t_Assentos.replace(assento, 0, id);
             if (reservado) {
@@ -130,21 +144,41 @@ public class Main {
         }
     }
 
-    public static synchronized int alocaAssentoLivre(int id){
+    public static int alocaAssentoLivre(int id){
         if(id == Integer.parseInt(Thread.currentThread().getName())) {
-            assento = random.nextInt(t_Assentos.size())+1;
-            boolean reservado = t_Assentos.replace(assento,0,id);
-            if(reservado) {
-                System.out.println("Assento "+assento+" reservado!");
-                int id_thread = Integer.parseInt(Thread.currentThread().getName());
-                buffer(2,id_thread,assento);
-                return 1;
+            int assento = 0;
+            int max_tentativas = 5;
+            int reservado = 0;
+
+            while(reservado == 0 && max_tentativas > 0) {
+                assento = random.nextInt(t_Assentos.size()) + 1;
+                reservado = alocaAssentoDado(assento, id);
+                max_tentativas--;
+            }
+
+            if(reservado == 0){
+                // Caso não tenha conseguido reservar um assento nas 5 tentativas aleatórias acima,
+                // tenta todos os assentos da lista até encontrar um vazio ou chegar no final.
+                for(int i = 1; i <= t_Assentos.size(); i++){
+                    if(t_Assentos.get(i) == 0){
+                        reservado = alocaAssentoDado(i, id);
+                        assento = i;
+                        if(reservado == 1)
+                            break;
+                    }
+                }
+            }
+
+            if(reservado == 1) {
+                System.out.println("Assento " + assento + " reservado!");
+                buffer(2, id, assento);
+                return assento;
             } else {
-                System.out.println("Assento "+assento+" não reservado, espaço já havia sido reservado!");
+                System.out.println("Não há assentos disponíveis");
                 return 0;
             }
         } else {
-            System.out.println("Assento "+assento+" não reservado - ID não compatível com o nome da thread.");
+            System.out.println("Assento não reservado - ID não compatível com o nome da thread.");
             return 0;
         }
     }
