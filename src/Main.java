@@ -12,6 +12,9 @@ public class Main {
 
     private static String nome_arquivo = "teste.txt";
 
+    private static int assento;
+    private static int qtda;
+
     private static Random random = new Random();
     private static BufferedWriter bw;
 
@@ -21,6 +24,7 @@ public class Main {
         inicializaBuffer();
 
         int qtd = Integer.parseInt(args[1]);
+        qtda = qtd;
 
         // Inicialização dos assentos com 0 - Livre
         // Numeracao do assento 1 até o assento = qtd
@@ -120,8 +124,17 @@ public class Main {
 
     public static int alocaAssentoLivre(int id){
         if(id == Integer.parseInt(Thread.currentThread().getName())) {
-            // TODO Pegar numero aleatório.
-            return 0;
+            assento = random.nextInt(qtda+1);
+            boolean reservado = t_Assentos.replace(assento,0,id);
+            if(reservado) {
+                System.out.println("Assento "+assento+" reservado!");
+                int id_thread = Integer.parseInt(Thread.currentThread().getName());
+                buffer(2,id_thread,assento);
+                return 1;
+            } else {
+                System.out.println("Assento não reservado, espaço já havia sido reservado!");
+                return 0;
+            }
         } else {
             System.out.println("Assento não reservado - ID não compatível com o nome da thread.");
             return 0;
