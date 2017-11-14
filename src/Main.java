@@ -13,7 +13,6 @@ public class Main {
     private static String nome_arquivo = "teste.txt";
 
     private static int assento;
-    private static int qtda;
 
     private static Random random = new Random();
     private static BufferedWriter bw;
@@ -24,7 +23,6 @@ public class Main {
         inicializaBuffer();
 
         int qtd = Integer.parseInt(args[1]);
-        qtda = qtd;
 
         // Inicialização dos assentos com 0 - Livre
         // Numeracao do assento 1 até o assento = qtd
@@ -33,9 +31,13 @@ public class Main {
         }
 
         Thread1 td1 = new Thread1();
+        Thread2 td2 = new Thread2();
 
         td1.setName("1");
+        td2.setName("2");
+
         td1.start();
+        td2.start();
 
         try {
             td1.join();
@@ -78,8 +80,7 @@ public class Main {
                 int liberados = liberaAssento(assentos[0], id);
                 liberados += liberaAssento(assentos[1], id);
                 liberados += liberaAssento(assentos[2], id);
-                visualizaAssentos();
-                System.out.println(liberados + " assentos desalocados com sucesso");
+                //System.out.println(liberados + " assentos desalocados com sucesso");
                 try {
                     sleep(1000);
                 } catch (InterruptedException e) {
@@ -90,12 +91,19 @@ public class Main {
     }
 
     public static class Thread2 extends Thread{
+        int r = random.nextInt(t_Assentos.size()+1);
+        //int[] assentos = new int[r];
         public void run(){
-            visualizaAssentos();
+            int id = Integer.parseInt(getName());
+            while(r-- > 0){
+                alocaAssentoLivre(id);
+                visualizaAssentos();
+                liberaAssento(assento, id);
+            }
         }
     }
 
-    public static void visualizaAssentos() {
+    public static synchronized void visualizaAssentos() {
         String listaAssentos = fazString();
 
         System.out.println(listaAssentos);
@@ -104,27 +112,27 @@ public class Main {
         buffer(1,id_thread, 0);
     }
 
-    public static int alocaAssentoDado(int assento, int id){
+    public static synchronized int alocaAssentoDado(int assento, int id){
         if(id == Integer.parseInt(Thread.currentThread().getName())) {
             boolean reservado = t_Assentos.replace(assento, 0, id);
             if (reservado) {
-                System.out.println("Assento reservado!");
+                System.out.println("Assento "+ assento +" reservado!");
                 int id_thread = Integer.parseInt(Thread.currentThread().getName());
                 buffer(3, id_thread, assento);
                 return 1;
             } else {
-                System.out.println("Assento não reservado!");
+                System.out.println("Assento "+assento+" não reservado, pois já está ocupado!");
                 return 0;
             }
         } else {
-            System.out.println("Assento não reservado - ID não compatível com o nome da thread.");
+            System.out.println("Assento "+assento+ " não reservado - ID não compatível com o nome da thread.");
             return 0;
         }
     }
 
-    public static int alocaAssentoLivre(int id){
+    public static synchronized int alocaAssentoLivre(int id){
         if(id == Integer.parseInt(Thread.currentThread().getName())) {
-            assento = random.nextInt(qtda+1);
+            assento = random.nextInt(t_Assentos.size())+1;
             boolean reservado = t_Assentos.replace(assento,0,id);
             if(reservado) {
                 System.out.println("Assento "+assento+" reservado!");
@@ -132,11 +140,11 @@ public class Main {
                 buffer(2,id_thread,assento);
                 return 1;
             } else {
-                System.out.println("Assento não reservado, espaço já havia sido reservado!");
+                System.out.println("Assento "+assento+" não reservado, espaço já havia sido reservado!");
                 return 0;
             }
         } else {
-            System.out.println("Assento não reservado - ID não compatível com o nome da thread.");
+            System.out.println("Assento "+assento+" não reservado - ID não compatível com o nome da thread.");
             return 0;
         }
     }
@@ -153,6 +161,7 @@ public class Main {
             // Atualiza para 0 - Livre o estado do assento se o atual valor = id da thread.
             boolean liberou = t_Assentos.replace(assento, id, 0);
             if (liberou) {
+                System.out.println("Assento "+assento+" liberado!");
                 buffer(4, id, assento);
                 return 1;
             } else {
