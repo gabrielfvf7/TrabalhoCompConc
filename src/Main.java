@@ -32,15 +32,28 @@ public class Main {
 
         Thread1 td1 = new Thread1();
         Thread2 td2 = new Thread2();
+        Thread3 td3 = new Thread3(qtd/2);
+        Thread4 td4 = new Thread4();
+        Thread3 td3_2 = new Thread3(qtd/3 + 1);
 
         td1.setName("1");
         td2.setName("2");
+        td3.setName("3");
+        td4.setName("4");
+        td3_2.setName("5");
 
         td1.start();
         td2.start();
+        td3.start();
+        td4.start();
+        td3_2.start();
 
         try {
             td1.join();
+            td2.join();
+            td3.join();
+            td4.join();
+            td3_2.join();
         } catch (InterruptedException e){
             e.printStackTrace();
         }
@@ -75,7 +88,7 @@ public class Main {
                 alocado[1] = alocaAssentoDado(assentos[1], id);
                 alocado[2] = alocaAssentoDado(assentos[2], id);
 
-                try { sleep(80); } catch (InterruptedException e){}
+                try { sleep(40); } catch (InterruptedException e){}
 
                 visualizaAssentos();
 
@@ -84,7 +97,7 @@ public class Main {
                 liberados += liberaAssento(assentos[2], id);
                 //System.out.println(liberados + " assentos desalocados com sucesso");
                 try {
-                    sleep(500);
+                    sleep(200);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -117,6 +130,50 @@ public class Main {
         }
     }
 
+    /**
+     * Thread 3 aloca dois assentos: um livre e um fixo, que é passado como parâmetro no construtor.
+     */
+    public static class Thread3 extends Thread{
+
+        int reservado_normal = 0;
+        int assento_livre = 0;
+        final int assento_normal;
+
+        public Thread3 (int assento1){
+            this.assento_normal = assento1;
+        }
+
+        public void run(){
+            int id = Integer.parseInt(getName());
+
+            assento_livre = alocaAssentoLivre(id);
+            visualizaAssentos();
+
+            reservado_normal = alocaAssentoDado(assento_normal, id);
+            visualizaAssentos();
+
+            try { sleep(30); } catch (InterruptedException e){}
+
+            if(assento_livre != 0)
+                liberaAssento(assento_livre, id);
+
+            try { sleep(10); } catch (InterruptedException e){}
+
+            if(reservado_normal == 1)
+                liberaAssento(assento_normal, id);
+
+            try { sleep(35); } catch (InterruptedException e){}
+        }
+    }
+
+    public static class Thread4 extends Thread {
+
+        public void run() {
+
+        }
+
+    }
+
     public static synchronized void visualizaAssentos() {
         String listaAssentos = fazString();
 
@@ -144,6 +201,14 @@ public class Main {
         }
     }
 
+    /**
+     * O método aloca um assento aleatório disponível seguindo os seguintes passos:
+     * 1 - Faz um loop por no máximo 5 vezes onde ele gera um número aleatório e tenta alocar esse lugar.
+     * 2 - Caso não consiga, faz um loop por todos os assentos, do primeiro até o último, buscando um assento vazio.
+     * 3 - Caso encontre um assento vazio, o aloca. Se não, retorna.
+     * @param id ID da Thread que chamou a função.
+     * @return 0, se não conseguir reservar um assento, ou o número do assento alocado caso consiga.
+     */
     public static int alocaAssentoLivre(int id){
         if(id == Integer.parseInt(Thread.currentThread().getName())) {
             int assento = 0;
@@ -191,7 +256,7 @@ public class Main {
      */
     public static int liberaAssento(int assento, int id){
         // Testa se o parâmetro id é mesmo da Thread que chamou a função
-        if(id == Integer.parseInt(Thread.currentThread().getName())) {
+        if(id == Integer.parseInt(Thread.currentThread().getName()) && assento > 0) {
             // Atualiza para 0 - Livre o estado do assento se o atual valor = id da thread.
             boolean liberou = t_Assentos.replace(assento, id, 0);
             if (liberou) {
