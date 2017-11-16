@@ -70,8 +70,7 @@ public class Main {
         }
 
 
-        System.out.println("fim");
-
+        System.out.println("\nTESTE PRA VER SE O BUFFER TÁ VAZIO:");
         for(String s : textoBuffer){
             if(s != null && !s.isEmpty())
                 System.out.println(s);
