@@ -35,13 +35,16 @@ public class Main {
         Thread3 td3 = new Thread3(qtd/2);
         Thread3 td3_2 = new Thread3(qtd/2); // Propositalmente igual ao td3 para fins de teste
         Thread3 td3_3 = new Thread3(qtd/3 + 1);
+        T_Log TL = new T_Log();
 
+        TL.setName("0");
         td1.setName("1");
         td2.setName("2");
         td3.setName("3");
         td3_2.setName("4");
         td3_3.setName("5");
 
+        TL.start();
         td1.start();
         td2.start();
         td3.start();
@@ -49,6 +52,7 @@ public class Main {
         td3_3.start();
 
         try {
+            TL.join();
             td1.join();
             td2.join();
             td3.join();
@@ -159,6 +163,23 @@ public class Main {
             }
 
             try { sleep(35); } catch (InterruptedException e){}
+        }
+    }
+
+    public static class T_Log extends Thread{
+        int codigo;
+        int id_thread;
+        int assento;
+        int tamanho = t_Assentos.size();
+
+        public void run(){
+
+            try {
+                while(tamanho-- > 0) {
+                    wait();
+                }
+            } catch(InterruptedException e) {}          
+
         }
     }
 
