@@ -14,7 +14,7 @@ public class Main {
     private static int t_Assento;
 
     private static String nome_arquivo = "teste.txt";
-    private static String[] textoBuffer = new String[20];
+    private static String[] textoBuffer = new String[100];
     private static int qtd = 0;
     private static boolean finaliza = false;
 
@@ -181,6 +181,7 @@ public class Main {
                         if(textoBuffer[qtd] != null) {
                             bw.write(textoBuffer[qtd]);
                             bw.newLine();
+                            textoBuffer[qtd] = null;
                         }
                     }
                 }
@@ -204,14 +205,14 @@ public class Main {
             if (reservado) {
                 int id_thread = Integer.parseInt(Thread.currentThread().getName());
                 buffer(3, id_thread, assento);
-                System.out.println("Alocado o assento "+assento);
+                System.out.println("(" + id + ")Alocado o assento "+assento);
                 return 1;
             } else {
-                System.out.println("Assento ja ocupado!");
+                System.out.println("(" + id + ")Assento ja ocupado!");
                 return 0;
             }
         } else {
-                System.out.println("Numero de id diferente!");
+                System.out.println("(" + id + ")Numero de id diferente!");
             return 0;
         }
     }
@@ -228,33 +229,35 @@ public class Main {
         if(id == Integer.parseInt(Thread.currentThread().getName())) {
             int assento = 0;
             int max_tentativas = 5;
-            int reservado = 0;
+            boolean reservado = false;
 
-            while(reservado == 0 && max_tentativas > 0) {
+            while(!reservado && max_tentativas > 0) {
                 assento = random.nextInt(t_Assentos.size()) + 1;
-                reservado = alocaAssentoDado(assento, id);
+                reservado = t_Assentos.replace(assento, 0, id);
                 max_tentativas--;
             }
 
-            if(reservado == 0){
+            if(!reservado){
+                assento = 0;
                 // Caso não tenha conseguido reservar um assento nas 5 tentativas aleatórias acima,
                 // tenta todos os assentos da lista até encontrar um vazio ou chegar no final.
                 for(int i = 1; i <= t_Assentos.size(); i++){
                     if(t_Assentos.get(i) == 0){
-                        reservado = alocaAssentoDado(i, id);
-                        assento = i;
-                        if(reservado == 1)
+                        reservado = t_Assentos.replace(i, 0, id);
+                        if(reservado) {
+                            assento = i;
                             break;
+                        }
                     }
                 }
             }
 
-            if(reservado == 1) {
+            if(reservado) {
                 buffer(2, id, assento);
-                System.out.println("Alocado o assento "+assento);
+                System.out.println("(" + id + ")Alocado o assento "+assento);
                 return assento;
             } else {
-                System.out.println("Assento ja reservado!");
+                System.out.println("(" + id + ")Assento ja reservado!");
                 return 0;
             }
         } else {
@@ -276,10 +279,10 @@ public class Main {
             boolean liberou = t_Assentos.replace(assento, id, 0);
             if (liberou) {
                 buffer(4, id, assento);
-                System.out.println("Liberado o assento "+assento);
+                System.out.println("(" + id + ")Liberado o assento "+assento);
                 return 1;
             } else {
-                System.out.println("Erro ao liberar assento!");
+                System.out.println("(" + id + ")Erro ao liberar assento!");
                 return 0;
             }
         } else {
