@@ -13,14 +13,11 @@ import java.util.concurrent.locks.ReentrantLock;
 public class Main {
 
     private static ConcurrentMap<Integer, Integer> t_Assentos = new ConcurrentHashMap<>();
-    private static int t_Assento;
-
     private static String nome_arquivo = "teste.txt";
     private static ConcurrentLinkedQueue<String> textoBuffer = new ConcurrentLinkedQueue<>();
     private static ReentrantLock lock = new ReentrantLock();
     private static int qtd = 0;
     private static boolean finaliza = false;
-
     private static Random random = new Random();
     private static BufferedWriter bw;
 
@@ -68,7 +65,6 @@ public class Main {
         } catch (InterruptedException e){
             e.printStackTrace();
         }
-
 
         System.out.println("\nTESTE PRA VER SE O BUFFER TÁ VAZIO:");
         for(String s : textoBuffer){
@@ -181,7 +177,6 @@ public class Main {
     public static class T_Log extends Thread{
         public void run(){
             inicializaBuffer();
-
             try {
                 while (!finaliza) {
                     lock.lock();
@@ -192,7 +187,6 @@ public class Main {
                     lock.unlock();
                 }
             } catch(IOException e) {}
-
             finalizaBuffer();
         }
     }
@@ -324,29 +318,16 @@ public class Main {
 
     private synchronized static void buffer(int codigo, int id_thread, int assento){
                 String assentos = fazString();
-                if(qtd > 10){ qtd = 0;}
                 if (assento == 0) {
-                    //try {
                         String content = codigo + "," + id_thread + "," + assentos;
                         lock.lock();
                         textoBuffer.add(content);
                         lock.unlock();
-                        //bw.write(content);
-                        //bw.newLine();
-                    //} catch (IOException e) {
-                    //    e.printStackTrace();
-                    //}
                 } else {
-                   // try {
                     String content = codigo + "," + id_thread + "," + assento + "," + assentos;
                     lock.lock();
                     textoBuffer.add(content);
                     lock.unlock();
-                       // bw.write(content);
-                       // bw.newLine();
-                   // } catch (IOException e) {
-                   //     e.printStackTrace();
-                   // }
                 }
     }
 
