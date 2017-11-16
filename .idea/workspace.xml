@@ -19,20 +19,16 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="180" column="49" lean-forward="false" selection-start-line="180" selection-start-column="49" selection-end-line="180" selection-end-column="49" />
+            <state relative-caret-position="396">
+              <caret line="285" column="49" lean-forward="false" selection-start-line="285" selection-start-column="49" selection-end-line="285" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="class#Thread1#0;class#Main#0" expanded="false" />
                 <element signature="class#Thread2#0;class#Main#0" expanded="false" />
                 <element signature="class#Thread3#0;class#Main#0" expanded="false" />
-                <element signature="e#4137#4138#0" expanded="true" />
-                <element signature="e#4191#4192#0" expanded="true" />
-                <element signature="method#alocaAssentoDado#0;class#Main#0" expanded="false" />
-                <element signature="method#alocaAssentoLivre#0;class#Main#0" expanded="false" />
-                <element signature="method#liberaAssento#0;class#Main#0" expanded="false" />
+                <element signature="e#4364#4365#0" expanded="true" />
+                <element signature="e#4418#4419#0" expanded="true" />
                 <element signature="method#fazString#0;class#Main#0" expanded="false" />
-                <element signature="method#inicializaBuffer#0;class#Main#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -93,6 +89,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -110,9 +107,8 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -120,120 +116,6 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/misc.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Main.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/teste.txt</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/DOCUMENTAÇÃO.docx</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -360,6 +242,7 @@
       <updated>1508951398192</updated>
       <workItem from="1508951399748" duration="4471000" />
       <workItem from="1510679144027" duration="3647000" />
+      <workItem from="1510854930232" duration="7977000" />
     </task>
     <task id="LOCAL-00001" summary="Feito função de alocar assento random">
       <created>1510680896879</created>
@@ -368,11 +251,18 @@
       <option name="project" value="LOCAL" />
       <updated>1510680896879</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Iniciando thread do logo">
+      <created>1510849291352</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1510849291352</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9970000" />
+    <option name="totallyTimeSpent" value="18964000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -380,14 +270,14 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277487" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32646593" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6117274" sideWeight="0.50292826" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6117274" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.6117274" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26806283" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -397,34 +287,14 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.6117274" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26806283" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1830161" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -435,11 +305,12 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Feito função de alocar assento random" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feito função de alocar assento random" />
+    <MESSAGE value="Iniciando thread do logo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Iniciando thread do logo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -453,13 +324,9 @@
             <element signature="class#Thread1#0;class#Main#0" expanded="false" />
             <element signature="class#Thread2#0;class#Main#0" expanded="false" />
             <element signature="class#Thread3#0;class#Main#0" expanded="false" />
-            <element signature="e#4137#4138#0" expanded="true" />
-            <element signature="e#4191#4192#0" expanded="true" />
-            <element signature="method#alocaAssentoDado#0;class#Main#0" expanded="false" />
-            <element signature="method#alocaAssentoLivre#0;class#Main#0" expanded="false" />
-            <element signature="method#liberaAssento#0;class#Main#0" expanded="false" />
+            <element signature="e#4364#4365#0" expanded="true" />
+            <element signature="e#4418#4419#0" expanded="true" />
             <element signature="method#fazString#0;class#Main#0" expanded="false" />
-            <element signature="method#inicializaBuffer#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -473,13 +340,9 @@
             <element signature="class#Thread1#0;class#Main#0" expanded="false" />
             <element signature="class#Thread2#0;class#Main#0" expanded="false" />
             <element signature="class#Thread3#0;class#Main#0" expanded="false" />
-            <element signature="e#4137#4138#0" expanded="true" />
-            <element signature="e#4191#4192#0" expanded="true" />
-            <element signature="method#alocaAssentoDado#0;class#Main#0" expanded="false" />
-            <element signature="method#alocaAssentoLivre#0;class#Main#0" expanded="false" />
-            <element signature="method#liberaAssento#0;class#Main#0" expanded="false" />
+            <element signature="e#4364#4365#0" expanded="true" />
+            <element signature="e#4418#4419#0" expanded="true" />
             <element signature="method#fazString#0;class#Main#0" expanded="false" />
-            <element signature="method#inicializaBuffer#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -493,13 +356,9 @@
             <element signature="class#Thread1#0;class#Main#0" expanded="false" />
             <element signature="class#Thread2#0;class#Main#0" expanded="false" />
             <element signature="class#Thread3#0;class#Main#0" expanded="false" />
-            <element signature="e#4137#4138#0" expanded="true" />
-            <element signature="e#4191#4192#0" expanded="true" />
-            <element signature="method#alocaAssentoDado#0;class#Main#0" expanded="false" />
-            <element signature="method#alocaAssentoLivre#0;class#Main#0" expanded="false" />
-            <element signature="method#liberaAssento#0;class#Main#0" expanded="false" />
+            <element signature="e#4364#4365#0" expanded="true" />
+            <element signature="e#4418#4419#0" expanded="true" />
             <element signature="method#fazString#0;class#Main#0" expanded="false" />
-            <element signature="method#inicializaBuffer#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -513,53 +372,9 @@
             <element signature="class#Thread1#0;class#Main#0" expanded="false" />
             <element signature="class#Thread2#0;class#Main#0" expanded="false" />
             <element signature="class#Thread3#0;class#Main#0" expanded="false" />
-            <element signature="e#4137#4138#0" expanded="true" />
-            <element signature="e#4191#4192#0" expanded="true" />
-            <element signature="method#alocaAssentoDado#0;class#Main#0" expanded="false" />
-            <element signature="method#alocaAssentoLivre#0;class#Main#0" expanded="false" />
-            <element signature="method#liberaAssento#0;class#Main#0" expanded="false" />
+            <element signature="e#4364#4365#0" expanded="true" />
+            <element signature="e#4418#4419#0" expanded="true" />
             <element signature="method#fazString#0;class#Main#0" expanded="false" />
-            <element signature="method#inicializaBuffer#0;class#Main#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="class#Thread1#0;class#Main#0" expanded="false" />
-            <element signature="class#Thread2#0;class#Main#0" expanded="false" />
-            <element signature="class#Thread3#0;class#Main#0" expanded="false" />
-            <element signature="e#4137#4138#0" expanded="true" />
-            <element signature="e#4191#4192#0" expanded="true" />
-            <element signature="method#alocaAssentoDado#0;class#Main#0" expanded="false" />
-            <element signature="method#alocaAssentoLivre#0;class#Main#0" expanded="false" />
-            <element signature="method#liberaAssento#0;class#Main#0" expanded="false" />
-            <element signature="method#fazString#0;class#Main#0" expanded="false" />
-            <element signature="method#inicializaBuffer#0;class#Main#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="class#Thread1#0;class#Main#0" expanded="false" />
-            <element signature="class#Thread2#0;class#Main#0" expanded="false" />
-            <element signature="class#Thread3#0;class#Main#0" expanded="false" />
-            <element signature="e#4137#4138#0" expanded="true" />
-            <element signature="e#4191#4192#0" expanded="true" />
-            <element signature="method#alocaAssentoDado#0;class#Main#0" expanded="false" />
-            <element signature="method#alocaAssentoLivre#0;class#Main#0" expanded="false" />
-            <element signature="method#liberaAssento#0;class#Main#0" expanded="false" />
-            <element signature="method#fazString#0;class#Main#0" expanded="false" />
-            <element signature="method#inicializaBuffer#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -578,65 +393,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1825">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa3408.38377/Monitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-510">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa3408.40813/ProdutorConsumidor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-80">
-          <caret line="1" column="7" lean-forward="true" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa3408.46364/Assento.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa3408.46521/Mapa_Assento.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa3408.46612/Pair.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa3408.46761/Sistema.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa3408.46822/Usuario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-204">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa3408.38377/Monitor.java" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa3408.40813/ProdutorConsumidor.java" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa3408.46364/Assento.java" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa3408.46521/Mapa_Assento.java" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa3408.46612/Pair.java" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa3408.46761/Sistema.java" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa3408.46822/Usuario.java" />
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2057">
@@ -646,13 +413,9 @@
             <element signature="class#Thread1#0;class#Main#0" expanded="false" />
             <element signature="class#Thread2#0;class#Main#0" expanded="false" />
             <element signature="class#Thread3#0;class#Main#0" expanded="false" />
-            <element signature="e#4137#4138#0" expanded="true" />
-            <element signature="e#4191#4192#0" expanded="true" />
-            <element signature="method#alocaAssentoDado#0;class#Main#0" expanded="false" />
-            <element signature="method#alocaAssentoLivre#0;class#Main#0" expanded="false" />
-            <element signature="method#liberaAssento#0;class#Main#0" expanded="false" />
+            <element signature="e#4364#4365#0" expanded="true" />
+            <element signature="e#4418#4419#0" expanded="true" />
             <element signature="method#fazString#0;class#Main#0" expanded="false" />
-            <element signature="method#inicializaBuffer#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -666,13 +429,9 @@
             <element signature="class#Thread1#0;class#Main#0" expanded="false" />
             <element signature="class#Thread2#0;class#Main#0" expanded="false" />
             <element signature="class#Thread3#0;class#Main#0" expanded="false" />
-            <element signature="e#4137#4138#0" expanded="true" />
-            <element signature="e#4191#4192#0" expanded="true" />
-            <element signature="method#alocaAssentoDado#0;class#Main#0" expanded="false" />
-            <element signature="method#alocaAssentoLivre#0;class#Main#0" expanded="false" />
-            <element signature="method#liberaAssento#0;class#Main#0" expanded="false" />
+            <element signature="e#4364#4365#0" expanded="true" />
+            <element signature="e#4418#4419#0" expanded="true" />
             <element signature="method#fazString#0;class#Main#0" expanded="false" />
-            <element signature="method#inicializaBuffer#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -693,13 +452,9 @@
             <element signature="class#Thread1#0;class#Main#0" expanded="false" />
             <element signature="class#Thread2#0;class#Main#0" expanded="false" />
             <element signature="class#Thread3#0;class#Main#0" expanded="false" />
-            <element signature="e#4137#4138#0" expanded="true" />
-            <element signature="e#4191#4192#0" expanded="true" />
-            <element signature="method#alocaAssentoDado#0;class#Main#0" expanded="false" />
-            <element signature="method#alocaAssentoLivre#0;class#Main#0" expanded="false" />
-            <element signature="method#liberaAssento#0;class#Main#0" expanded="false" />
+            <element signature="e#4364#4365#0" expanded="true" />
+            <element signature="e#4418#4419#0" expanded="true" />
             <element signature="method#fazString#0;class#Main#0" expanded="false" />
-            <element signature="method#inicializaBuffer#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -713,13 +468,9 @@
             <element signature="class#Thread1#0;class#Main#0" expanded="false" />
             <element signature="class#Thread2#0;class#Main#0" expanded="false" />
             <element signature="class#Thread3#0;class#Main#0" expanded="false" />
-            <element signature="e#4137#4138#0" expanded="true" />
-            <element signature="e#4191#4192#0" expanded="true" />
-            <element signature="method#alocaAssentoDado#0;class#Main#0" expanded="false" />
-            <element signature="method#alocaAssentoLivre#0;class#Main#0" expanded="false" />
-            <element signature="method#liberaAssento#0;class#Main#0" expanded="false" />
+            <element signature="e#4364#4365#0" expanded="true" />
+            <element signature="e#4418#4419#0" expanded="true" />
             <element signature="method#fazString#0;class#Main#0" expanded="false" />
-            <element signature="method#inicializaBuffer#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -733,13 +484,9 @@
             <element signature="class#Thread1#0;class#Main#0" expanded="false" />
             <element signature="class#Thread2#0;class#Main#0" expanded="false" />
             <element signature="class#Thread3#0;class#Main#0" expanded="false" />
-            <element signature="e#4137#4138#0" expanded="true" />
-            <element signature="e#4191#4192#0" expanded="true" />
-            <element signature="method#alocaAssentoDado#0;class#Main#0" expanded="false" />
-            <element signature="method#alocaAssentoLivre#0;class#Main#0" expanded="false" />
-            <element signature="method#liberaAssento#0;class#Main#0" expanded="false" />
+            <element signature="e#4364#4365#0" expanded="true" />
+            <element signature="e#4418#4419#0" expanded="true" />
             <element signature="method#fazString#0;class#Main#0" expanded="false" />
-            <element signature="method#inicializaBuffer#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -753,13 +500,9 @@
             <element signature="class#Thread1#0;class#Main#0" expanded="false" />
             <element signature="class#Thread2#0;class#Main#0" expanded="false" />
             <element signature="class#Thread3#0;class#Main#0" expanded="false" />
-            <element signature="e#4137#4138#0" expanded="true" />
-            <element signature="e#4191#4192#0" expanded="true" />
-            <element signature="method#alocaAssentoDado#0;class#Main#0" expanded="false" />
-            <element signature="method#alocaAssentoLivre#0;class#Main#0" expanded="false" />
-            <element signature="method#liberaAssento#0;class#Main#0" expanded="false" />
+            <element signature="e#4364#4365#0" expanded="true" />
+            <element signature="e#4418#4419#0" expanded="true" />
             <element signature="method#fazString#0;class#Main#0" expanded="false" />
-            <element signature="method#inicializaBuffer#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -773,13 +516,9 @@
             <element signature="class#Thread1#0;class#Main#0" expanded="false" />
             <element signature="class#Thread2#0;class#Main#0" expanded="false" />
             <element signature="class#Thread3#0;class#Main#0" expanded="false" />
-            <element signature="e#4137#4138#0" expanded="true" />
-            <element signature="e#4191#4192#0" expanded="true" />
-            <element signature="method#alocaAssentoDado#0;class#Main#0" expanded="false" />
-            <element signature="method#alocaAssentoLivre#0;class#Main#0" expanded="false" />
-            <element signature="method#liberaAssento#0;class#Main#0" expanded="false" />
+            <element signature="e#4364#4365#0" expanded="true" />
+            <element signature="e#4418#4419#0" expanded="true" />
             <element signature="method#fazString#0;class#Main#0" expanded="false" />
-            <element signature="method#inicializaBuffer#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -793,13 +532,9 @@
             <element signature="class#Thread1#0;class#Main#0" expanded="false" />
             <element signature="class#Thread2#0;class#Main#0" expanded="false" />
             <element signature="class#Thread3#0;class#Main#0" expanded="false" />
-            <element signature="e#4137#4138#0" expanded="true" />
-            <element signature="e#4191#4192#0" expanded="true" />
-            <element signature="method#alocaAssentoDado#0;class#Main#0" expanded="false" />
-            <element signature="method#alocaAssentoLivre#0;class#Main#0" expanded="false" />
-            <element signature="method#liberaAssento#0;class#Main#0" expanded="false" />
+            <element signature="e#4364#4365#0" expanded="true" />
+            <element signature="e#4418#4419#0" expanded="true" />
             <element signature="method#fazString#0;class#Main#0" expanded="false" />
-            <element signature="method#inicializaBuffer#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -823,13 +558,9 @@
             <element signature="class#Thread1#0;class#Main#0" expanded="false" />
             <element signature="class#Thread2#0;class#Main#0" expanded="false" />
             <element signature="class#Thread3#0;class#Main#0" expanded="false" />
-            <element signature="e#4137#4138#0" expanded="true" />
-            <element signature="e#4191#4192#0" expanded="true" />
-            <element signature="method#alocaAssentoDado#0;class#Main#0" expanded="false" />
-            <element signature="method#alocaAssentoLivre#0;class#Main#0" expanded="false" />
-            <element signature="method#liberaAssento#0;class#Main#0" expanded="false" />
+            <element signature="e#4364#4365#0" expanded="true" />
+            <element signature="e#4418#4419#0" expanded="true" />
             <element signature="method#fazString#0;class#Main#0" expanded="false" />
-            <element signature="method#inicializaBuffer#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -843,13 +574,9 @@
             <element signature="class#Thread1#0;class#Main#0" expanded="false" />
             <element signature="class#Thread2#0;class#Main#0" expanded="false" />
             <element signature="class#Thread3#0;class#Main#0" expanded="false" />
-            <element signature="e#4137#4138#0" expanded="true" />
-            <element signature="e#4191#4192#0" expanded="true" />
-            <element signature="method#alocaAssentoDado#0;class#Main#0" expanded="false" />
-            <element signature="method#alocaAssentoLivre#0;class#Main#0" expanded="false" />
-            <element signature="method#liberaAssento#0;class#Main#0" expanded="false" />
+            <element signature="e#4364#4365#0" expanded="true" />
+            <element signature="e#4418#4419#0" expanded="true" />
             <element signature="method#fazString#0;class#Main#0" expanded="false" />
-            <element signature="method#inicializaBuffer#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -870,13 +597,9 @@
             <element signature="class#Thread1#0;class#Main#0" expanded="false" />
             <element signature="class#Thread2#0;class#Main#0" expanded="false" />
             <element signature="class#Thread3#0;class#Main#0" expanded="false" />
-            <element signature="e#4137#4138#0" expanded="true" />
-            <element signature="e#4191#4192#0" expanded="true" />
-            <element signature="method#alocaAssentoDado#0;class#Main#0" expanded="false" />
-            <element signature="method#alocaAssentoLivre#0;class#Main#0" expanded="false" />
-            <element signature="method#liberaAssento#0;class#Main#0" expanded="false" />
+            <element signature="e#4364#4365#0" expanded="true" />
+            <element signature="e#4418#4419#0" expanded="true" />
             <element signature="method#fazString#0;class#Main#0" expanded="false" />
-            <element signature="method#inicializaBuffer#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -890,13 +613,9 @@
             <element signature="class#Thread1#0;class#Main#0" expanded="false" />
             <element signature="class#Thread2#0;class#Main#0" expanded="false" />
             <element signature="class#Thread3#0;class#Main#0" expanded="false" />
-            <element signature="e#4137#4138#0" expanded="true" />
-            <element signature="e#4191#4192#0" expanded="true" />
-            <element signature="method#alocaAssentoDado#0;class#Main#0" expanded="false" />
-            <element signature="method#alocaAssentoLivre#0;class#Main#0" expanded="false" />
-            <element signature="method#liberaAssento#0;class#Main#0" expanded="false" />
+            <element signature="e#4364#4365#0" expanded="true" />
+            <element signature="e#4418#4419#0" expanded="true" />
             <element signature="method#fazString#0;class#Main#0" expanded="false" />
-            <element signature="method#inicializaBuffer#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -910,13 +629,9 @@
             <element signature="class#Thread1#0;class#Main#0" expanded="false" />
             <element signature="class#Thread2#0;class#Main#0" expanded="false" />
             <element signature="class#Thread3#0;class#Main#0" expanded="false" />
-            <element signature="e#4137#4138#0" expanded="true" />
-            <element signature="e#4191#4192#0" expanded="true" />
-            <element signature="method#alocaAssentoDado#0;class#Main#0" expanded="false" />
-            <element signature="method#alocaAssentoLivre#0;class#Main#0" expanded="false" />
-            <element signature="method#liberaAssento#0;class#Main#0" expanded="false" />
+            <element signature="e#4364#4365#0" expanded="true" />
+            <element signature="e#4418#4419#0" expanded="true" />
             <element signature="method#fazString#0;class#Main#0" expanded="false" />
-            <element signature="method#inicializaBuffer#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -930,13 +645,9 @@
             <element signature="class#Thread1#0;class#Main#0" expanded="false" />
             <element signature="class#Thread2#0;class#Main#0" expanded="false" />
             <element signature="class#Thread3#0;class#Main#0" expanded="false" />
-            <element signature="e#4137#4138#0" expanded="true" />
-            <element signature="e#4191#4192#0" expanded="true" />
-            <element signature="method#alocaAssentoDado#0;class#Main#0" expanded="false" />
-            <element signature="method#alocaAssentoLivre#0;class#Main#0" expanded="false" />
-            <element signature="method#liberaAssento#0;class#Main#0" expanded="false" />
+            <element signature="e#4364#4365#0" expanded="true" />
+            <element signature="e#4418#4419#0" expanded="true" />
             <element signature="method#fazString#0;class#Main#0" expanded="false" />
-            <element signature="method#inicializaBuffer#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -950,13 +661,9 @@
             <element signature="class#Thread1#0;class#Main#0" expanded="false" />
             <element signature="class#Thread2#0;class#Main#0" expanded="false" />
             <element signature="class#Thread3#0;class#Main#0" expanded="false" />
-            <element signature="e#4137#4138#0" expanded="true" />
-            <element signature="e#4191#4192#0" expanded="true" />
-            <element signature="method#alocaAssentoDado#0;class#Main#0" expanded="false" />
-            <element signature="method#alocaAssentoLivre#0;class#Main#0" expanded="false" />
-            <element signature="method#liberaAssento#0;class#Main#0" expanded="false" />
+            <element signature="e#4364#4365#0" expanded="true" />
+            <element signature="e#4418#4419#0" expanded="true" />
             <element signature="method#fazString#0;class#Main#0" expanded="false" />
-            <element signature="method#inicializaBuffer#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -970,13 +677,9 @@
             <element signature="class#Thread1#0;class#Main#0" expanded="false" />
             <element signature="class#Thread2#0;class#Main#0" expanded="false" />
             <element signature="class#Thread3#0;class#Main#0" expanded="false" />
-            <element signature="e#4137#4138#0" expanded="true" />
-            <element signature="e#4191#4192#0" expanded="true" />
-            <element signature="method#alocaAssentoDado#0;class#Main#0" expanded="false" />
-            <element signature="method#alocaAssentoLivre#0;class#Main#0" expanded="false" />
-            <element signature="method#liberaAssento#0;class#Main#0" expanded="false" />
+            <element signature="e#4364#4365#0" expanded="true" />
+            <element signature="e#4418#4419#0" expanded="true" />
             <element signature="method#fazString#0;class#Main#0" expanded="false" />
-            <element signature="method#inicializaBuffer#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -991,26 +694,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BufferHelper.java" />
-    <entry file="file://$PROJECT_DIR$/teste.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1825">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa9072.47991/Sistema.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-408">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa9072.47991/Sistema.java" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa11100.36433/Pair.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="31" lean-forward="true" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1018,7 +706,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-459">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1026,9 +713,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-408">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1036,26 +720,45 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-437">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/lang/Object.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="73">
+          <caret line="501" column="0" lean-forward="false" selection-start-line="501" selection-start-column="0" selection-end-line="501" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/io/Writer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="73">
+          <caret line="156" column="0" lean-forward="false" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teste.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="180" column="49" lean-forward="false" selection-start-line="180" selection-start-column="49" selection-end-line="180" selection-end-column="49" />
+        <state relative-caret-position="396">
+          <caret line="285" column="49" lean-forward="false" selection-start-line="285" selection-start-column="49" selection-end-line="285" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="class#Thread1#0;class#Main#0" expanded="false" />
             <element signature="class#Thread2#0;class#Main#0" expanded="false" />
             <element signature="class#Thread3#0;class#Main#0" expanded="false" />
-            <element signature="e#4137#4138#0" expanded="true" />
-            <element signature="e#4191#4192#0" expanded="true" />
-            <element signature="method#alocaAssentoDado#0;class#Main#0" expanded="false" />
-            <element signature="method#alocaAssentoLivre#0;class#Main#0" expanded="false" />
-            <element signature="method#liberaAssento#0;class#Main#0" expanded="false" />
+            <element signature="e#4364#4365#0" expanded="true" />
+            <element signature="e#4418#4419#0" expanded="true" />
             <element signature="method#fazString#0;class#Main#0" expanded="false" />
-            <element signature="method#inicializaBuffer#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
