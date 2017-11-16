@@ -1,12 +1,14 @@
-import javafx.util.Pair;
-
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Queue;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ConcurrentMap;
-import java.util.concurrent.Semaphore;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class Main {
 
@@ -14,11 +16,10 @@ public class Main {
     private static int t_Assento;
 
     private static String nome_arquivo = "teste.txt";
-    private static String[] textoBuffer = new String[100];
+    private static ConcurrentLinkedQueue<String> textoBuffer = new ConcurrentLinkedQueue<>();
+    private static ReentrantLock lock = new ReentrantLock();
     private static int qtd = 0;
     private static boolean finaliza = false;
-
-    private static Semaphore sm = new Semaphore(0);
 
     private static Random random = new Random();
     private static BufferedWriter bw;
@@ -63,10 +64,17 @@ public class Main {
             td3_2.join();
             td3_3.join();
             finaliza = true;
-            sm.release();
             TL.join();
         } catch (InterruptedException e){
             e.printStackTrace();
+        }
+
+
+        System.out.println("fim");
+
+        for(String s : textoBuffer){
+            if(s != null && !s.isEmpty())
+                System.out.println(s);
         }
     }
 
@@ -174,18 +182,18 @@ public class Main {
     public static class T_Log extends Thread{
         public void run(){
             inicializaBuffer();
+
             try {
-                synchronized (this) {
-                    while (!finaliza) {
-                        sm.acquire();
-                        if(textoBuffer[qtd] != null) {
-                            bw.write(textoBuffer[qtd]);
-                            bw.newLine();
-                            textoBuffer[qtd] = null;
-                        }
+                while (!finaliza) {
+                    lock.lock();
+                    while(!textoBuffer.isEmpty()){
+                        bw.write(textoBuffer.remove());
+                        bw.newLine();
                     }
+                    lock.unlock();
                 }
-            } catch(IOException | InterruptedException e) {}
+            } catch(IOException e) {}
+
             finalizaBuffer();
         }
     }
@@ -208,7 +216,7 @@ public class Main {
                 System.out.println("(" + id + ")Alocado o assento "+assento);
                 return 1;
             } else {
-                System.out.println("(" + id + ")Assento ja ocupado!");
+                System.out.println("(" + id + ")Assento ja ocupado " + assento);
                 return 0;
             }
         } else {
@@ -254,10 +262,10 @@ public class Main {
 
             if(reservado) {
                 buffer(2, id, assento);
-                System.out.println("(" + id + ")Alocado o assento "+assento);
+                System.out.println("(" + id + ")Alocado o assento livre "+assento);
                 return assento;
             } else {
-                System.out.println("(" + id + ")Assento ja reservado!");
+                System.out.println("(" + id + ")Não há assentos livres");
                 return 0;
             }
         } else {
@@ -321,11 +329,9 @@ public class Main {
                 if (assento == 0) {
                     //try {
                         String content = codigo + "," + id_thread + "," + assentos;
-                        synchronized (textoBuffer) {
-                            textoBuffer[qtd] = content;
-                            qtd++;
-                            sm.release();
-                        }
+                        lock.lock();
+                        textoBuffer.add(content);
+                        lock.unlock();
                         //bw.write(content);
                         //bw.newLine();
                     //} catch (IOException e) {
@@ -333,12 +339,10 @@ public class Main {
                     //}
                 } else {
                    // try {
-                        String content = codigo + "," + id_thread + "," + assento + "," + assentos;
-                    synchronized (textoBuffer) {
-                        textoBuffer[qtd] = content;
-                        qtd++;
-                        sm.release();
-                    }
+                    String content = codigo + "," + id_thread + "," + assento + "," + assentos;
+                    lock.lock();
+                    textoBuffer.add(content);
+                    lock.unlock();
                        // bw.write(content);
                        // bw.newLine();
                    // } catch (IOException e) {
