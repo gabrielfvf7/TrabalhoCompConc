@@ -3,15 +3,11 @@ import sun.security.x509.AVA;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Queue;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.Semaphore;
-import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class Main {
@@ -21,7 +17,6 @@ public class Main {
     private static ConcurrentLinkedQueue<String> textoBuffer = new ConcurrentLinkedQueue<>();
     private static ReentrantLock lock = new ReentrantLock();
     private static Semaphore smMapa = new Semaphore(1);
-    private static int qtd = 0;
     private static boolean finaliza = false;
     private static Random random = new Random();
     private static BufferedWriter bw;
@@ -52,7 +47,7 @@ public class Main {
         td3_2.setName("4");
         td3_3.setName("5");
 
-        System.out.println("Iniciando Threads de alocação.");
+        System.out.println("Iniciando Threads.");
         TL.start();
         td1.start();
         td2.start();
@@ -68,7 +63,7 @@ public class Main {
             td3_3.join();
             finaliza = true;
             TL.join();
-            System.out.println("Threads finalizadas com sucesso.\n");
+            System.out.println("Threads finalizadas.\n");
         } catch (InterruptedException e){
             e.printStackTrace();
         }
@@ -204,6 +199,8 @@ public class Main {
     public static void visualizaAssentos() {
         int id_thread = Integer.parseInt(Thread.currentThread().getName());
         smMapa.acquireUninterruptibly();
+        String assentos = fazString();
+        System.out.println("Thread "+id_thread+" visualizaAssentos: "+assentos);
         buffer(1,id_thread, 0);
         smMapa.release();
     }
@@ -214,6 +211,7 @@ public class Main {
             boolean reservado = t_Assentos.replace(assento, 0, id);
             if (reservado) {
                 int id_thread = Integer.parseInt(Thread.currentThread().getName());
+                System.out.println("Thread "+id_thread+" alocaAssentoDado "+assento);
                 buffer(3, id_thread, assento);
                 smMapa.release();
                 return 1;
@@ -263,6 +261,7 @@ public class Main {
             }
 
             if(reservado) {
+                System.out.println("Thread "+id+" alocaAssentolivre "+assento);
                 buffer(2, id, assento);
                 smMapa.release();
                 return assento;
@@ -288,6 +287,7 @@ public class Main {
             smMapa.acquireUninterruptibly();
             boolean liberou = t_Assentos.replace(assento, id, 0);
             if (liberou) {
+                System.out.println("Thread "+id+" liberaAssento "+assento);
                 buffer(4, id, assento);
                 smMapa.release();
                 return 1;
