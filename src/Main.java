@@ -1,25 +1,23 @@
-import javafx.util.Pair;
+import sun.security.x509.AVA;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class Main {
 
     private static ConcurrentMap<Integer, Integer> t_Assentos = new ConcurrentHashMap<>();
-    private static int t_Assento;
-
     private static String nome_arquivo = "teste.txt";
-    private static String[] textoBuffer = new String[100];
-    private static int qtd = 0;
+    private static ConcurrentLinkedQueue<String> textoBuffer = new ConcurrentLinkedQueue<>();
+    private static ReentrantLock lock = new ReentrantLock();
+    private static Semaphore smMapa = new Semaphore(1);
     private static boolean finaliza = false;
-
-    private static Semaphore sm = new Semaphore(0);
-
     private static Random random = new Random();
     private static BufferedWriter bw;
 
@@ -49,6 +47,7 @@ public class Main {
         td3_2.setName("4");
         td3_3.setName("5");
 
+        System.out.println("Iniciando Threads.");
         TL.start();
         td1.start();
         td2.start();
@@ -63,11 +62,17 @@ public class Main {
             td3_2.join();
             td3_3.join();
             finaliza = true;
-            sm.release();
             TL.join();
+            System.out.println("Threads finalizadas.\n");
         } catch (InterruptedException e){
             e.printStackTrace();
         }
+
+        if(!textoBuffer.isEmpty()){
+            System.out.println("Erro! O Buffer do arquivo de log não foi completamente esvaziado.");
+        }
+
+        AvaliaLog.avaliar(nome_arquivo);
     }
 
     /**
@@ -120,7 +125,10 @@ public class Main {
         public void run(){
             int id = Integer.parseInt(getName());
             while(r-- > 0){
+                visualizaAssentos();
+
                 assento = alocaAssentoLivre(id);
+
                 visualizaAssentos();
 
                 try { sleep(100); } catch (InterruptedException e){}
@@ -175,44 +183,43 @@ public class Main {
         public void run(){
             inicializaBuffer();
             try {
-                synchronized (this) {
-                    while (!finaliza) {
-                        sm.acquire();
-                        if(textoBuffer[qtd] != null) {
-                            bw.write(textoBuffer[qtd]);
-                            bw.newLine();
-                            textoBuffer[qtd] = null;
-                        }
+                while (!finaliza) {
+                    lock.lock();
+                    while(!textoBuffer.isEmpty()){
+                        bw.write(textoBuffer.remove());
+                        bw.newLine();
                     }
+                    lock.unlock();
                 }
-            } catch(IOException | InterruptedException e) {}
+            } catch(IOException e) {}
             finalizaBuffer();
         }
     }
 
-    public static synchronized void visualizaAssentos() {
-        String listaAssentos = fazString();
-
-        System.out.println("Visualização do mapa: "+listaAssentos);
-
+    public static void visualizaAssentos() {
         int id_thread = Integer.parseInt(Thread.currentThread().getName());
+        smMapa.acquireUninterruptibly();
+        String assentos = fazString();
+        System.out.println("Thread "+id_thread+" visualizaAssentos: "+assentos);
         buffer(1,id_thread, 0);
+        smMapa.release();
     }
 
-    public static synchronized int alocaAssentoDado(int assento, int id){
+    public static int alocaAssentoDado(int assento, int id){
         if(id == Integer.parseInt(Thread.currentThread().getName())) {
+            smMapa.acquireUninterruptibly();
             boolean reservado = t_Assentos.replace(assento, 0, id);
             if (reservado) {
                 int id_thread = Integer.parseInt(Thread.currentThread().getName());
+                System.out.println("Thread "+id_thread+" alocaAssentoDado "+assento);
                 buffer(3, id_thread, assento);
-                System.out.println("(" + id + ")Alocado o assento "+assento);
+                smMapa.release();
                 return 1;
             } else {
-                System.out.println("(" + id + ")Assento ja ocupado!");
+                smMapa.release();
                 return 0;
             }
         } else {
-                System.out.println("(" + id + ")Numero de id diferente!");
             return 0;
         }
     }
@@ -231,6 +238,7 @@ public class Main {
             int max_tentativas = 5;
             boolean reservado = false;
 
+            smMapa.acquireUninterruptibly();
             while(!reservado && max_tentativas > 0) {
                 assento = random.nextInt(t_Assentos.size()) + 1;
                 reservado = t_Assentos.replace(assento, 0, id);
@@ -253,15 +261,15 @@ public class Main {
             }
 
             if(reservado) {
+                System.out.println("Thread "+id+" alocaAssentolivre "+assento);
                 buffer(2, id, assento);
-                System.out.println("(" + id + ")Alocado o assento "+assento);
+                smMapa.release();
                 return assento;
             } else {
-                System.out.println("(" + id + ")Assento ja reservado!");
+                smMapa.release();
                 return 0;
             }
         } else {
-            System.out.println("Id diferente!");
             return 0;
         }
     }
@@ -276,17 +284,18 @@ public class Main {
         // Testa se o parâmetro id é mesmo da Thread que chamou a função
         if(id == Integer.parseInt(Thread.currentThread().getName()) && assento > 0) {
             // Atualiza para 0 - Livre o estado do assento se o atual valor = id da thread.
+            smMapa.acquireUninterruptibly();
             boolean liberou = t_Assentos.replace(assento, id, 0);
             if (liberou) {
+                System.out.println("Thread "+id+" liberaAssento "+assento);
                 buffer(4, id, assento);
-                System.out.println("(" + id + ")Liberado o assento "+assento);
+                smMapa.release();
                 return 1;
             } else {
-                System.out.println("(" + id + ")Erro ao liberar assento!");
+                smMapa.release();
                 return 0;
             }
         } else {
-                System.out.println("Id diferente!");
             return 0;
         }
     }
@@ -308,49 +317,30 @@ public class Main {
 
     private static void inicializaBuffer(){
         try{
-            bw = new BufferedWriter(new FileWriter(nome_arquivo, true));
+            bw = new BufferedWriter(new FileWriter(nome_arquivo, false));
         } catch (IOException e){
             e.printStackTrace();
             System.exit(-1);
         }
     }
 
-    private synchronized static void buffer(int codigo, int id_thread, int assento){
+    private static void buffer(int codigo, int id_thread, int assento){
                 String assentos = fazString();
-                if(qtd > 10){ qtd = 0;}
                 if (assento == 0) {
-                    //try {
                         String content = codigo + "," + id_thread + "," + assentos;
-                        synchronized (textoBuffer) {
-                            textoBuffer[qtd] = content;
-                            qtd++;
-                            sm.release();
-                        }
-                        //bw.write(content);
-                        //bw.newLine();
-                    //} catch (IOException e) {
-                    //    e.printStackTrace();
-                    //}
+                        lock.lock();
+                        textoBuffer.add(content);
+                        lock.unlock();
                 } else {
-                   // try {
-                        String content = codigo + "," + id_thread + "," + assento + "," + assentos;
-                    synchronized (textoBuffer) {
-                        textoBuffer[qtd] = content;
-                        qtd++;
-                        sm.release();
-                    }
-                       // bw.write(content);
-                       // bw.newLine();
-                   // } catch (IOException e) {
-                   //     e.printStackTrace();
-                   // }
+                    String content = codigo + "," + id_thread + "," + assento + "," + assentos;
+                    lock.lock();
+                    textoBuffer.add(content);
+                    lock.unlock();
                 }
     }
 
     private static void finalizaBuffer(){
         try {
-            bw.write("-------");
-            bw.newLine();
             bw.flush();
             bw.close();
         } catch (IOException e){
